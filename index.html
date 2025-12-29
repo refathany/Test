@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدول المقارنة التفصيلي - رِفْعَت</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --primary-color: #bb86fc;
+            --secondary-color: #03dac6;
+            --text-color: #e0e0e0;
+            --border-color: #333;
+            --hover-row: #2c2c2c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .header-text {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #888;
+        }
+
+        /* تنسيق الجدول */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--surface-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #2d2d2d;
+            color: var(--primary-color);
+            font-size: 1.1em;
+            font-weight: bold;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* تخصيص العمود الأول (الفئة الرئيسية) */
+        td.main-category {
+            background-color: #252525;
+            font-weight: bold;
+            color: var(--secondary-color);
+            vertical-align: middle;
+            text-align: center;
+            width: 120px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* تخصيص عمود النوع الفرعي */
+        td.sub-type {
+            font-weight: bold;
+            color: #fff;
+            background-color: #2a2a2a;
+            width: 150px;
+        }
+
+        tr:hover {
+            background-color: var(--hover-row);
+        }
+
+        /* تنسيق القوائم داخل الخلايا */
+        ul {
+            margin: 0;
+            padding-right: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .pros { color: #81c784; } /* أخضر للمميزات */
+        .cons { color: #e57373; } /* أحمر للعيوب */
+        
+        .note-tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-top: 5px;
+            color: #aaa;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div style="text-align: center;">
+        <h1>المقارنة الشاملة: خرائط التوزيعات الكمية</h1>
+        <p class="header-text">تحليل المميزات والعيوب والمشكلات لكل نوع وتفريعاته | إعداد: رِفْعَت</p>
+    </div>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>التصنيف الرئيسي</th>
+                <th>النوع الفرعي</th>
+                <th>المميزات (نقاط القوة)</th>
+                <th>العيوب والمشكلات</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td class="main-category" rowspan="1">طريقة النقطة<br>(Dots)</td>
+                <td class="sub-type">النقطة الكمية</td>
+                <td>
+                    <ul>
+                        <li class="pros">أفضل طريقة تعطي انطباعاً بصرياً فورياً عن الكثافة والتوزيع.</li>
+                        <li class="pros">سهلة الفهم لغير المتخصصين.</li>
+                        <li class="pros">توضح أماكن التركز (Clustering) والتشتت بدقة مكانية.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">مشكلة التحام النقاط (Coalescence) في المناطق المزدحمة فتصير "بقعة صماء".</li>
+                        <li class="cons">صعوبة (أو استحالة) عد النقاط لاستعادة الرقم الأصلي.</li>
+                        <li class="cons">الوهم البصري بالفراغ في المناطق ذات الأعداد القليلة إذا كانت قيمة النقطة كبيرة.</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="main-category" rowspan="4">الدوائر النسبية<br>(Circles)</td>
+                <td class="sub-type">الدوائر الأحادية (Simple)</td>
+                <td>
+                    <ul>
+                        <li class="pros">شكل هندسي مألوف ومريح للعين.</li>
+                        <li class="pros">تشغل حيزاً صغيراً (مدمجة Compact) مقارنة بالأعمدة.</li>
+                        <li class="pros">تسهل توقيعها في الموقع الصحيح بدقة.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">الخداع البصري: العين لا تقدر المساحات بدقة (Flannery).</li>
+                        <li class="cons">مشكلة التداخل (Overlap) وتغطية المعالم الهامة.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="sub-type">الدوائر المتداخلة<br>(Nested)</td>
+                <td>
+                    <ul>
+                        <li class="pros">تحل مشكلة الازدحام بوضع الرموز داخل بعضها.</li>
+                        <li class="pros">تسمح بمقارنة عدة قيم لنفس الموقع في حيز ضيق.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">صعوبة تمييز الدوائر إذا كانت القيم متقاربة جداً.</li>
+                        <li class="cons">قد تغطي الدائرة الكبرى الدوائر الأصغر إذا لم تُرسم بترتيب صحيح أو تلوين مناسب.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="sub-type">الدوائر المركبة/المتقابلة<br>(Opposed)</td>
+                <td>
+                    <ul>
+                        <li class="pros">ممتازة للمقارنة بين ظاهرتين متضادتين (مثل: واردات/صادرات).</li>
+                        <li class="pros">تعطي مقارنة فورية (نصف يمين vs نصف يسار).</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">يصعب تقدير مساحة "نصف دائرة" بصرياً مقارنة بدائرة كاملة.</li>
+                        <li class="cons">محدودة بظاهرتين فقط.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="sub-type">الدوائر المُقسمة<br>(Pie Charts)</td>
+                <td>
+                    <ul>
+                        <li class="pros">تضرب عصفورين بحجر: توضح الحجم الكلي (مساحة الدائرة) والتركيب الداخلي (القطاعات).</li>
+                        <li class="pros">شائعة ومألوفة جداً.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">صعوبة مقارنة زوايا القطاعات بين دوائر مختلفة (خاصة إذا لم تبدأ من الـ 12 ظهراً).</li>
+                        <li class="cons">تصبح غير مقروءة إذا زاد عدد القطاعات عن 5 أو 6.</li>
+                        <li class="cons">لا تصلح للقيم الصغيرة جداً (يصعب رؤية التقسيم).</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="main-category" rowspan="3">الأعمدة البيانية<br>(Bars)</td>
+                <td class="sub-type">الأعمدة الأحادية (Simple)</td>
+                <td>
+                    <ul>
+                        <li class="pros">الأدق على الإطلاق في المقارنة البصرية (مقارنة أطوال خطية).</li>
+                        <li class="pros">سهلة الرسم والحساب.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">المشكلة المكانية: شكلها المتطاول قد يخرج عن إطار الخريطة أو يغطي مساحات مجاورة.</li>
+                        <li class="cons">غير مرنة في التوقيع في الأماكن المزدحمة.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="sub-type">الأعمدة المتجاورة<br>(Adjacent)</td>
+                <td>
+                    <ul>
+                        <li class="pros">تسمح بمقارنة تطور ظاهرة زمنياً (سلسلة زمنية) لنفس المكان.</li>
+                        <li class="pros">تسمح بمقارنة عدة ظاهرات مختلفة جنباً إلى جنب.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">تستهلك مساحة كبيرة جداً على الخريطة.</li>
+                        <li class="cons">تسبب زحاماً شديداً إذا كثرت الوحدات الإدارية.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="sub-type">الأعمدة المتداخلة/المركبة<br>(Stacked/Divergent)</td>
+                <td>
+                    <ul>
+                        <li class="pros">المركبة: توضح القيمة الكلية وأجزاءها (مثل الدائرة المقسمة لكن أسهل في مقارنة الطول).</li>
+                        <li class="pros">المتداخلة (الهرمية): ممتازة لتركيب السكان (ذكور/إناث).</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">في الأعمدة المركبة: يصعب مقارنة الأقسام العلوية لأنها لا تبدأ من خط الصفر (قاعدتها متغيرة).</li>
+                        <li class="cons">تحتاج لمفتاح معقد أحياناً.</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="main-category" rowspan="2">المربعات النسبية<br>(Squares)</td>
+                <td class="sub-type">المربعات الأحادية</td>
+                <td>
+                    <ul>
+                        <li class="pros">رسمها وحسابها أسهل من الدوائر (أضلاع مستقيمة).</li>
+                        <li class="pros">سهل تقسيمها وقياسها بالمسطرة.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">أقل جمالاً وجاذبية بصرية من الدوائر.</li>
+                        <li class="cons">ما زالت تعتمد على المساحة (مشكلة التقدير البصري).</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="sub-type">المربعات المتداخلة</td>
+                <td>
+                    <ul>
+                        <li class="pros">موفرة جداً للمساحة.</li>
+                        <li class="pros">واضحة الحدود والزوايا.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">توحي بأن الظاهرة مركزة في نقطة واحدة بشكل حاد.</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="main-category">التظليل النسبي<br>(Choropleth)</td>
+                <td class="sub-type">كثافات ونسب</td>
+                <td>
+                    <ul>
+                        <li class="pros">الأنسب للنسب المئوية والكثافات (البيانات المشتقة).</li>
+                        <li class="pros">تغطي كامل مساحة الخريطة (Continuous look).</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">مشكلة التجانس (Homogeneity): تفترض تساوي الظاهرة في كل المحافظة وهذا خطأ.</li>
+                        <li class="cons">مشكلة الحدود (Step Boundary): التغير المفاجئ عند الخط الفاصل.</li>
+                        <li class="cons">مشكلة الوحدات المساحية (MAUP): النتيجة تتغير بتغير شكل المحافظة.</li>
+                    </ul>
+                </td>
+            </tr>
+             <tr>
+                <td class="main-category">الرموز الحجمية<br>(Volumetric)</td>
+                <td class="sub-type">الكرات والمكعبات</td>
+                <td>
+                    <ul>
+                        <li class="pros">الحل السحري للبيانات ذات المدى الهائل (قيم صغيرة جداً وعملاقة في آن واحد).</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="cons">أسوأ تقدير بصري (العين لا تدرك الحجم 3D بدقة وتراه مساحة).</li>
+                        <li class="cons">صعبة الرسم والقياس يدوياً.</li>
+                    </ul>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    
+    <div style="margin-top: 20px; text-align: center; color: #777; font-size: 0.9em;">
+        * تم إعداد هذا الجدول بناءً على مقررات خرائط التوزيعات (جامعة القاهرة - آداب جغرافيا)
+    </div>
+</div>
+
+</body>
+</html>
